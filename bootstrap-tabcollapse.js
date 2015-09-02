@@ -158,7 +158,12 @@
     };
 
     TabCollapse.prototype._tabHeadingToPanelHeading = function($heading, groupId, parentId, active) {
-        $heading.addClass('js-tabcollapse-panel-heading ' + (active ? '' : 'collapsed'));
+        if (active){            
+            $heading.addClass('js-tabcollapse-panel-heading').removeClass('collapsed');
+        }
+        else{
+           $heading.addClass('js-tabcollapse-panel-heading collapsed'); 
+        }
         $heading.attr({
             'data-toggle': 'collapse',
             'data-parent': '#' + parentId,
